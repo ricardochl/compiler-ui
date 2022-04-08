@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="examples-container">
+    <div>
+      <h4>Ejemplos</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona una opción</mat-label>
+        <mat-select (selectionChange)="changeExample($event)">
+          <mat-option *ngFor="let example of examples" [value]="example.id">
+            {{ example.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <ng-container *ngIf="currentExample.link">
+      <div class="link-example">
+        <span>Información de apoyo </span>
+        <a [href]="currentExample.link" target="_blank">Ver más</a>
+      </div>
+    </ng-container>
+  </div>
+  <div class="code-container">
+    <app-source-code
+      [exampleSourceCode]="currentExample.sourceCode"
+    ></app-source-code>
+    <app-pseudocode></app-pseudocode>
+  </div>
+</div>

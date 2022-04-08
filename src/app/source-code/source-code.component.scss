@@ -1,0 +1,23 @@
+.action-buttons{
+  display: flex;
+  margin-top: 12px;
+  gap: 0 12px;
+}
+
+.errors mat-form-field{
+ width: 100%;
+ color: red;
+}
+
+.successfully  mat-form-field{
+  width: 100%;
+  color: green;
+}
+
+
+.spiner-container{
+  padding: 20px;
+  mat-spinner{
+    width: 50px;
+  }
+}

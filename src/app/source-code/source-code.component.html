@@ -1,0 +1,22 @@
+<h2>Código Fuente C++</h2>
+<app-editor (onChange)="onChange($event)" [sourceCode]="exampleSourceCode"></app-editor>
+<div class="errors" *ngIf="error; else successfully">
+  <mat-form-field appearance="fill">
+    <textarea matInput readonly [rows]="10">{{error}}</textarea>
+  </mat-form-field>
+</div>
+<ng-template #successfully >
+  <div class="successfully" *ngIf="sourceCode && compileSuccessfully">
+    <mat-form-field appearance="fill">
+      <textarea matInput readonly>Compilado exitosamente</textarea>
+    </mat-form-field>
+  </div>
+</ng-template>
+<div class="action-buttons">
+  <button mat-raised-button color="primary" (click)="compile()">Compilar</button>
+  <button mat-raised-button color="accent" (click)="translate()">Convertir</button>
+  <button mat-raised-button (click)="convert()">Compilar & Convertir</button>
+</div>
+<div class="spiner-container" *ngIf="isLoading">
+  <mat-spinner diameter="30"></mat-spinner>
+</div>

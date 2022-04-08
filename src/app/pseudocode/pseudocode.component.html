@@ -1,0 +1,7 @@
+<h2>Pseudocódigo</h2>
+<ng-container *ngIf="(compileService.pseudoCode$ | async) as pseudoCode; else defaultEditor">
+  <app-editor [readOnly]="true" [sourceCode]="pseudoCode"></app-editor>
+</ng-container>
+<ng-template #defaultEditor>
+  <app-editor [readOnly]="true"></app-editor>
+</ng-template>
